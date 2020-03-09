@@ -4,8 +4,7 @@ let main = document.getElementsByClassName('tw-pd-b-3 tw-pd-t-2 tw-pd-x-3')[0];
 const config = { attributes: true, childList: true, subtree: true };
 
 const callback = function(mutationsList, observer) {
-  
-  checkGames();   
+  removeGames();   
 }
 // if dom changed
 const observer = new MutationObserver(callback);
@@ -16,9 +15,9 @@ let x = 0;
 function removeGames() {
   let cards = main.getElementsByClassName('preview-card');
   const bannedGames = ['league of legends',`playerunknown's battlegrounds`, 'counter-strike: global offensive', 'pubg mobile', 'grand theft auto v',
-  'fortnite', 'zula', 'knight online', 'dota 2', 'teamfight tactics', 'slots', 'metin 2', 'black desert online', 'hearthstone'];
+  'fortnite', 'zula', 'knight online', 'dota 2', 'teamfight tactics', 'slots', 'metin 2', 'black desert online', 'hearthstone', 'blackjack', 'poker'];
 
-  const bannedChannels = ['10000days']
+  const bannedChannels = ['x']
 
   for (let i = 0; i < cards.length; i++) {
   
@@ -43,14 +42,15 @@ function removeGames() {
       }
     } catch (error) {}
   }
-  console.log(x + ' channel was removed');
+  // console.log(x + ' channel was removed');
 }
 
 // In first load
-function checkGames () {
-  setTimeout(() => {
+setTimeout(() => {
     removeGames();
-  }, 2000);
-}
+}, 1000);
+
+
+
 
 
