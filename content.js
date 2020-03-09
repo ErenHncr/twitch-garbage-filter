@@ -1,10 +1,14 @@
 // main includes all cards.
-let main = document.getElementsByClassName('tw-pd-b-3 tw-pd-t-2 tw-pd-x-3')[0];
+let main = document.getElementsByTagName('main')[0];
 
 const config = { attributes: true, childList: true, subtree: true };
 
 const callback = function(mutationsList, observer) {
-  removeGames();   
+  removeGames();
+  setTimeout(() => {
+    console.log(x + ' channel was removed'); 
+  },2000);
+    
 }
 // if dom changed
 const observer = new MutationObserver(callback);
@@ -13,42 +17,52 @@ observer.observe(main, config);
 
 let x = 0;
 function removeGames() {
-  let cards = main.getElementsByClassName('preview-card');
+  let cards = document.getElementsByClassName('tw-mg-b-2');
   const bannedGames = ['league of legends',`playerunknown's battlegrounds`, 'counter-strike: global offensive', 'pubg mobile', 'grand theft auto v',
-  'fortnite', 'zula', 'knight online', 'dota 2', 'teamfight tactics', 'slots', 'metin 2', 'black desert online', 'hearthstone', 'blackjack', 'poker'];
+  'fortnite', 'zula', 'knight online', 'dota 2', 'teamfight tactics', 'slots', 'metin 2', 'black desert online', 'hearthstone', 'blackjack', 'poker',
+  'sadece sohbet','silkroad online','fifa 20'];
 
-  const bannedChannels = ['x']
+  const bannedChannels = ['x', 'y'];
+
+  // get games played
+  // console.log(cards[1].children[0].children[0].children[0]
+  //   .children[0].children[0].children[0].children[0].children[1]
+  //   .children[1].children[0].children[0].textContent.toLowerCase());
+
+  // get channel name
+  // console.log(cards[1].children[0].children[0].children[0]
+  //   .children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[0].textContent.toLowerCase());
 
   for (let i = 0; i < cards.length; i++) {
   
     try {
       // if the card has child
-      if(cards[i].parentElement.parentElement.parentElement.parentElement.parentElement.hasChildNodes){
+      if(cards[i].parentElement.parentElement.hasChildNodes){
         // remove channels that play bannedGames games 
-        if(bannedGames.some(el => cards[i].children[1].children[1].children[0].children[1].children[1].children[0].children[0].textContent.toLowerCase().includes(el))){
+        if(bannedGames.some(el => cards[i].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[1].children[1].children[0].children[0].textContent.toLowerCase().includes(el))){
           // how many cards are deleted?
           x++;
-          // list all removed channels
-          // console.log(cards[i].children[1].children[1].children[0].children[1].children[1].children[0].children[0].textContent.toLowerCase());
-          // delete 4 upper parent
-          cards[i].parentElement.parentElement.parentElement.parentElement.parentElement.removeChild(cards[i].parentElement.parentElement.parentElement.parentElement); 
+          // delete upper parent
+          cards[i].parentElement.parentElement.removeChild(cards[i].parentElement);
         }
         // remove channels in bannedChannels
-        if(bannedChannels.some(el => cards[i].children[1].children[1].children[0].children[1].children[0].children[0].children[0].textContent.toLowerCase().includes(el))) {
-          cards[i].parentElement.parentElement.parentElement.parentElement.parentElement.removeChild(cards[i].parentElement.parentElement.parentElement.parentElement);
+        if(bannedChannels.some(el => cards[i].children[0].children[0].children[0]
+          .children[0].children[0].children[0].children[0].children[1].children[0]
+          .children[0].children[0].textContent.toLowerCase().includes(el))) {
+          
+          cards[i].parentElement.parentElement.removeChild(cards[i].parentElement);
           x++;
         }
 
       }
     } catch (error) {}
   }
-  // console.log(x + ' channel was removed');
 }
 
 // In first load
 setTimeout(() => {
     removeGames();
-}, 1000);
+}, 2000);
 
 
 
