@@ -22,7 +22,7 @@ function removeGames() {
   'fortnite', 'zula', 'knight online', 'dota 2', 'teamfight tactics', 'slots', 'metin 2', 'black desert online', 'hearthstone', 'blackjack', 'poker',
   'sadece sohbet','silkroad online','fifa 20'];
 
-  const bannedChannels = ['x', 'y'];
+  const bannedChannels = ['wtcn', 'y'];
 
   // get games played
   // console.log(cards[1].children[0].children[0].children[0]
@@ -64,6 +64,11 @@ setTimeout(() => {
     removeGames();
 }, 2000);
 
+chrome.runtime.onMessage.addListener(gotMessage);
+
+function gotMessage(msg, sender, sendResponse) {
+  console.log(msg.txt);
+}
 
 
 
