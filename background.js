@@ -1,8 +1,2 @@
-chrome.browserAction.onClicked.addListener(buttonClicked);
+console.log('background running');
 
-function buttonClicked(tab) {
-  let msg = {
-    txt: 'hello'
-  }
-  chrome.tabs.sendMessage(tab.id, msg);
-}

@@ -1,3 +1,4 @@
+
 // main includes all cards.
 let main = document.getElementsByTagName('main')[0];
 
@@ -18,10 +19,17 @@ observer.observe(main, config);
 let x = 0;
 function removeGames() {
   let cards = document.getElementsByClassName('tw-mg-b-2');
-  const bannedGames = ['league of legends',`playerunknown's battlegrounds`, 'counter-strike: global offensive', 'pubg mobile', 'grand theft auto v',
-  'fortnite', 'zula', 'knight online', 'dota 2', 'teamfight tactics', 'slots', 'metin 2', 'black desert online', 'hearthstone', 'blackjack', 'poker',
-  'sadece sohbet','silkroad online','fifa 20'];
+  let bannedGames;
 
+  if(localStorage.getItem('banned') != undefined) {
+    bannedGames = JSON.parse(localStorage.getItem('banned'));
+  }
+  else {
+    bannedGames = ['league of legends',`playerunknown's battlegrounds`, 'counter-strike: global offensive', 'pubg mobile', 'grand theft auto v',
+    'fortnite', 'zula', 'knight online', 'dota 2', 'teamfight tactics', 'slots', 'metin 2', 'black desert online', 'hearthstone', 'blackjack', 'poker',
+    'sadece sohbet','silkroad online','fifa 20'];
+  }
+  
   const bannedChannels = ['wtcn', 'y'];
 
   // get games played
@@ -64,12 +72,11 @@ setTimeout(() => {
     removeGames();
 }, 2000);
 
-chrome.runtime.onMessage.addListener(gotMessage);
 
-function gotMessage(msg, sender, sendResponse) {
-  console.log(msg.txt);
+
+chrome.runtime.onMessage.addListener(receiver);
+
+function receiver(request, sender, sendResponse) {
+  localStorage.setItem('banned', JSON.stringify(request.arr));
+  console.log(request.arr);
 }
-
-
-
-

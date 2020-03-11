@@ -4,7 +4,7 @@
   "version":"0.2",
   "content_scripts": [
     {
-      "matches":["https://www.twitch.tv/directory/*"],
+      "matches":["<all_urls>"],
       "run_at": "document_idle",
       "js": ["content.js"]
     }
@@ -12,6 +12,9 @@
   "background": {
     "scripts": ["background.js"]
   },
+  "permissions": [
+    "activeTab"
+  ],
   "browser_action": {
     "default_icon": "trash.png",
     "default_popup": "popup.html",
