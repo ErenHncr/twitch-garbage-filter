@@ -25,6 +25,7 @@ document.getElementsByClassName('list')[0].addEventListener('click', (e) => {
       e.currentTarget.removeChild(e.path[i]);
     }
   }
+  localStorage.setItem('banned', JSON.stringify(banned));
   sendLocalStorage();
   console.log(banned);
 })
