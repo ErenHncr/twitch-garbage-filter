@@ -72,8 +72,6 @@ setTimeout(() => {
     removeGames();
 }, 2000);
 
-
-
 chrome.runtime.onMessage.addListener(receiver);
 
 function receiver(request, sender, sendResponse) {
