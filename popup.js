@@ -12,6 +12,7 @@ button.addEventListener("click", () => {
 function toggle() {
   infoBox.style.display = 'block';
   let arr = [];
+  let checkAvailable = true;
   if(!textBox.value) {
     infoBox.style.animationName = 'false';
     infoBox.textContent = 'The area must be filled out!';
@@ -19,18 +20,23 @@ function toggle() {
   else {
     
     if(localStorage.getItem('banned') == undefined) {
-      arr.push(textBox.value);
+      arr.push(textBox.value.trim());
       localStorage.setItem('banned', JSON.stringify(arr));
     }
 
     else {
       arr = JSON.parse(localStorage.getItem('banned'));
-      arr.push((textBox.value.toString()).toLowerCase());
-      localStorage.setItem('banned', JSON.stringify(arr));
+      checkAvailable = arr.includes((textBox.value.toString().trim()).toLowerCase())
+      if(!checkAvailable) {
+        arr.push((textBox.value.toString().trim()).toLowerCase());
+        localStorage.setItem('banned', JSON.stringify(arr));
+      }
+      
     }
 
-    infoBox.style.animationName = 'true';
-    infoBox.textContent = textBox.value.toString()+' added.';
+    infoBox.style.animationName = (!checkAvailable).toString();
+    infoBox.textContent = textBox.value.toString()+ (!checkAvailable ? ' added.' : ' already exists.');
+    textBox.value = ''; 
     // it should be completed for saving data
   }
 

@@ -76,5 +76,8 @@ chrome.runtime.onMessage.addListener(receiver);
 
 function receiver(request, sender, sendResponse) {
   localStorage.setItem('banned', JSON.stringify(request.arr));
-  console.log(request.arr);
+  removeGames();
+  if(request.origin == 'remove'){
+    window.location.reload();
+  }
 }

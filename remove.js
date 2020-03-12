@@ -39,10 +39,19 @@ function sendLocalStorage() {
   chrome.tabs.query(params, gotTabs);
   
   function gotTabs(tabs) {
-
-    const msg = {
-      arr: JSON.parse(localStorage.getItem('banned'))
-    };
+    let msg = {
+      arr:[],
+      origin:'remove'
+    }
+    console.log(localStorage.getItem('banned'));
+    if(localStorage.getItem('banned') != undefined && 
+    localStorage.getItem('banned') != null ) {
+      console.log('girdi');
+      msg = {
+        arr: JSON.parse(localStorage.getItem('banned')),
+        origin: 'remove'
+      };
+    }
 
   // The first tab is the one you are on
     chrome.tabs.sendMessage(tabs[0].id, msg);//, messageBack);
