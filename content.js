@@ -47,16 +47,20 @@ function removeGames() {
       // if the card has child
       if(cards[i].parentElement.parentElement.hasChildNodes){
         // remove channels that play bannedGames games 
-        if(bannedGames.some(el => cards[i].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[1].children[1].children[0].children[0].textContent.toLowerCase().includes(el))){
+        if(bannedGames.some(el => cards[i].children[0].children[0]
+          .children[0].children[0].children[0].children[0]
+          .children[0].children[1].children[1].children[0]
+          .children[0].textContent.toLowerCase().includes(el))){
           // how many cards are deleted?
           x++;
           // delete upper parent
           cards[i].parentElement.parentElement.removeChild(cards[i].parentElement);
         }
         // remove channels in bannedChannels
-        if(bannedChannels.some(el => cards[i].children[0].children[0].children[0]
-          .children[0].children[0].children[0].children[0].children[1].children[0]
-          .children[0].children[0].textContent.toLowerCase().includes(el))) {
+        if(bannedGames.some(el => cards[i].children[0].children[0]
+          .children[0].children[0].children[0].children[0]
+          .children[0].children[1].children[0].children[0]
+          .children[0].textContent.toLowerCase().includes(el))) {
           
           cards[i].parentElement.parentElement.removeChild(cards[i].parentElement);
           x++;

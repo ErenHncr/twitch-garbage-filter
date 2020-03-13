@@ -11,11 +11,30 @@
     <label for="fname">Enter Games Or Channels That You Don't Want To See:</label>
     <input class="textBox" type="text" id="fname" name="fname"><br>
     <input class="btn" type="submit" value="Add">
-    <a class="route" href="/popup-list.html">Click</a>
+    <a class="back" href="/popup-list.html">
+      <p style="margin-top: -3px; margin-left: -10px;">Added Items</p>
+      <img style=" transform: rotate(180deg);" src="./leftback.png" width="18px" height="18px">
+    </a>
     <p style="font-size: 0.9rem; font-weight: 500; color: black;" class="error"></p>
   </div>
 
   <script src="popup.js"></script>
+
+  <style>
+  .container .back {
+    margin-top: 15px;
+    border: 0;
+    border: 1.5px white solid;
+    width: 90%;
+    padding-left: 10px;
+    grid-column: 2 / span 1;
+    box-sizing: border-box;
+    justify-self: end;
+    justify-items: center;
+    border-radius: 3px;
+    grid-template-columns: 1fr auto;
+  }
+  </style>
 
 </body>
 </html>
