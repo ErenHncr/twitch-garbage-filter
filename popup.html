@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Twitch Garbage Filter</title>
   <link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -12,19 +13,19 @@
     <input class="textBox" type="text" id="fname" name="fname"><br>
     <input class="btn" type="submit" value="Add">
     <a class="back" href="/popup-list.html">
-      <p style="margin-top: -3px; margin-left: -10px;">Added Items</p>
-      <img style=" transform: rotate(180deg);" src="./leftback.png" width="18px" height="18px">
+      <p>Added Items</p>
+      <img style=" transform: rotate(180deg);" src="./left-arrow.png" width="18px" height="18px">
     </a>
-    <p style="font-size: 0.9rem; font-weight: 500; color: black;" class="error"></p>
+    <p style="font-size: 0.9rem; font-weight: bold; color: black;" class="error"></p>
   </div>
 
   <script src="popup.js"></script>
 
   <style>
   .container .back {
+    background: #FC78FF;
     margin-top: 15px;
     border: 0;
-    border: 1.5px white solid;
     width: 90%;
     padding-left: 10px;
     grid-column: 2 / span 1;
@@ -33,6 +34,10 @@
     justify-items: center;
     border-radius: 3px;
     grid-template-columns: 1fr auto;
+    color: black;
+    font-family: Montserrat;
+    font-weight: 600;
+    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
   }
   </style>
 

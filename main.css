@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   min-width: 350px;
-  font-family: Helvetica;
+  font-family: Montserrat;
 }
 .error {
 display: none;
@@ -37,12 +37,15 @@ opacity: 0;
 }
 .container label {
   font-size: 0.9rem;
-  font-weight: 600;
-  padding: 10px;
+  font-weight: 500;
+  padding: 0px;
   grid-column: span 2;
   box-sizing: border-box;
   width: 100%;  
   color: white;
+  margin: 0;
+  margin-bottom: 10px;
+  text-align: justify;
 }
 .btn {
   grid-column: span 1 ;
@@ -51,13 +54,16 @@ opacity: 0;
   width: 90%;
   height: 100%;
   outline: 0;
-  background: rgb(52, 225, 255);
   border: 0;
   text-decoration: none;
   border-radius: 3px;
+  background: #00FFD1;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Montserrat;
+  font-weight: 600;
 }
 .btn:hover {
-  background: rgba(52, 225, 255, 0.788);
+  background: rgb(0, 231, 177);
   transition: 0.1s;
   
 }
@@ -72,7 +78,9 @@ opacity: 0;
   padding: 5px;
   box-sizing: border-box;
   border: 0;
-  box-shadow: 0px 2px rgb(60, 216, 255);
+  border-bottom: 1.3px solid rgb(60, 216, 255);;
+  border-radius: 3px;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .error {
   width: 100%;
@@ -80,7 +88,7 @@ opacity: 0;
   grid-column: span 2;
   padding: 10px;
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: bold;
   color: white;
   margin-top: 10px;
 }
@@ -100,16 +108,17 @@ opacity: 0;
   display: grid;
   grid-template-columns: 1fr 25px;
   align-items: center;
-  background: rgb(255, 0, 106);
+  background: rgb(240, 130, 255);
   width: 100%;
-  color: white;
+  color: black;
   padding: 5px;
   padding-left: 10px;
   list-style: none;
+  font-weight: 600;
 }
 
 .list li:hover {
-  background: rgb(207, 0, 86);
+  background:rgb(255, 124, 189);
 }
 
 .list p {
@@ -140,13 +149,14 @@ p {
 }
 
 .heading p {
-  margin-top: -3px;
+  margin-right: 5px;
   margin-left: -3px;
+  font-size: 1rem;
 }
 
 .heading label {
   min-width: 80%;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-top: 1px;
   padding-left: 5px;
 }
@@ -158,11 +168,12 @@ p {
   align-items: center;
   text-decoration: none;
   color: white;
-  font-size: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 0.9rem;
   font-weight: 400;
   padding-right: 10px;
   justify-self: start;
   border-right: 1px white solid;
   padding: 5px;
+  margin: 0;
+  margin-left: -5px;
 }
